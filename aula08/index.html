@@ -1,0 +1,52 @@
+<html>
+
+<head>
+
+	<link rel="stylesheet" type="text/css" href="../extjs/resources/css/ext-all.css">
+	<script type="text/javascript" src="../extjs/ext-all.js"></script>
+
+</head>
+
+<body></body>
+
+<script type="text/javascript">
+
+	Ext.define('Aula08.componentes.MeuBotao', {
+		extend: 'Ext.button.Button',
+
+		alias: 'widget.meubotao',
+
+		initComponent: function () {
+
+			this.text = 'Teste Button'
+
+			this.callParent();
+		}
+	});
+
+	Ext.onReady(function () {
+
+		Ext.widget('meubotao', {
+			text: 'Extjs',
+			renderTo: Ext.getBody()
+		});
+
+		Ext.create('Ext.window.Window', {
+			title: 'Hello',
+			height: 200,
+			width: 400,
+			layout: 'fit',
+			items: {
+				xtype: 'button',
+				width: 100,
+				height: 20,
+				text: 'botao'
+
+			}
+		}).show();
+
+
+	});
+</script>
+
+</html>

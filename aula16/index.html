@@ -1,0 +1,57 @@
+<html>
+
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+
+	<link rel="stylesheet" type="text/css" href="../extjs/resources/css/ext-all.css">
+	<script type="text/javascript" src="../extjs/ext-all.js"></script>
+
+</head>
+
+<body></body>
+
+<script type="text/javascript">
+
+	Ext.define('Lista', {
+		extend: 'Ext.data.Model',
+
+		fields: [
+			{ name: 'id', type: 'int' },
+			{ name: 'desc', type: 'string' }
+		]
+	});
+
+	Ext.define('LocalStore', {
+		extend: 'Ext.data.Store',
+		model: 'Lista',
+		proxy: {
+			type: 'localstorage',
+			id: 'lista'
+		}
+
+	});
+
+	Ext.onReady(function () {
+
+		var store = Ext.create('LocalStore');
+
+		store.load();
+		store.add({ desc: 'Adição' });
+		store.add({ desc: 'Adição' });
+		store.add({ desc: 'Adição' });
+		store.sync();
+
+		store.load(
+			function (records, op, success) {
+				var lista, i;
+				for (i = 0 ; i < records.length ; i++) {
+					lista = records[i].data
+					console.log('ID: ' + lista.id + ' Descrição: ' + lista.desc)
+				}
+			}
+		)
+	});
+</script>
+
+</html>

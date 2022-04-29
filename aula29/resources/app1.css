@@ -1,0 +1,29 @@
+body {
+	padding: 30px;
+}
+
+p {
+	margin-bottom: 15px;
+}
+
+/*buttons*/
+.x-btn-default-large .add {
+    background-image: url(images/add.gif) !important;
+}
+.icone {
+    background-image: url(images/grid.png) !important;
+}
+.x-btn-default-medium .add {
+    background-image: url(images/add24.gif) !important;
+}
+.vscode {
+    background-image: url(images/!PNG/visualstudio.png) !important;
+    max-width:20%;
+    height:auto;
+}
+
+.intellij {
+    background-image: url(images/!PNG/intellij.png) !important;
+    max-width:100%;
+    height:auto;
+}
